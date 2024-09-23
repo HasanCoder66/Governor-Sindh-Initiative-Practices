@@ -27,6 +27,12 @@ const Navbar = () => {
                 <li>Portfolio Projects</li>
                 
                 </Link>
+                <Link href="/user">
+                <li>User</li>
+                </Link>
+                <Link href="/user/profile">
+                <li>Profile</li>
+                </Link>
             </ul>
         </div>
     </div>
