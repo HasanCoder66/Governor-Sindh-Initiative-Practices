@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import Link from "next/link";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -16,24 +17,22 @@ const IndexRoute = () => {
   // console.log(data)
 
   return (
-    <div className="flex flex-col justify-center mt-[25px]">
-      <h1 className="text-center text-4xl">
-        {`This the User's Page `}
-        {/* ${query.DynamicRoute} */}
-        {/* {data && data.map((items) => console.log(items))} */}
-      </h1>
-      <ul className="text-center text-2xl mt-[10px]">
-        UsernName's Are here!
-        {data &&
-          data.users.map((items) => (
-            <li
-              key={items?.id}
-            >{`${items?.id} ${items?.firstName} ${items?.lastName}`}</li>
-          ))}
-      </ul>
+    <div className="flex flex-col justify-center mt-[5px]">
+      <h1 className="text-center text-4xl">This the Users Name Page</h1>
+      {data &&
+        data.users.map((items) => (
+          <Link
+            href={`/user/${items?.id}`}
+            className="pl-[25px] cursor-pointer"
+            key={items?.id}
+          >
+            {" "}
+            <div>{` ${items?.firstName} ${items?.lastName}`}</div>
+          </Link>
+        ))}
       <button
         onClick={(e) => router.push(`/`)}
-        className="bg-white text-black  font-semibold m-auto p-[15px]   mt-[25px]"
+        className="bg-white text-black  font-semibold m-auto p-[5px]   mt-[5px]"
       >
         Go to Home Page{" "}
       </button>
