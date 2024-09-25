@@ -9,7 +9,7 @@ const DynamicRoute = () => {
   return (
     <div className="flex flex-col justify-center mt-[25px]">
       <p className="text-center">
-        {`This the User's Page By the Name of ${query.id}`}
+        {`This the Users Page By the Name of ${query.id}`}
       </p>
       <button
         onClick={(e) => router.push(`/`)}

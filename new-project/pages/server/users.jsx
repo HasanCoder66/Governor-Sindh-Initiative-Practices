@@ -1,13 +1,13 @@
 import React from 'react'
 
 const UsersPage = (props) => {
-    console.log(props.data)
+    // console.log(props.data)
   return (
     <div>
         <h1>
-            This is the user's page
+            This is the users page
         </h1>
-        {props.data.users.map((item)=> <li>{item.firstName}</li>)}
+        {props.data.users.map((item)=> <li key={item?.id}>{item.firstName}</li>)}
     </div>
   )
 }
