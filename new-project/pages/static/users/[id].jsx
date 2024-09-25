@@ -1,12 +1,19 @@
 import React from "react";
 
 const UsersIdProfile = ({ data }) => {
-  console.log(data);
+  //   console.log(data);
   return <div>UsersIdProfile : {data?.firstName}</div>;
 };
 export const getStaticPaths = async () => {
+  const res = await fetch(`https://dummyjson.com/users`);
+  const data = await res.json();
+//   console.log(data);
+  const allUserIds = data.users.map((user) => user.id);
+  console.log("all users ids ===>", allUserIds);
+
   return {
-    paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
+      // paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
+    paths : allUserIds.map((id)=> ({params: { userId: `${id}` }}) ),
     fallback: false,
   };
 };
