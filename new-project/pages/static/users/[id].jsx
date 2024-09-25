@@ -9,11 +9,11 @@ export const getStaticPaths = async () => {
   const data = await res.json();
 //   console.log(data);
   const allUserIds = data.users.map((user) => user.id);
-  console.log("all users ids ===>", allUserIds);
+  // console.log("all users ids ===>", allUserIds);
 
   return {
       // paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
-    paths : allUserIds.map((id)=> ({params: { userId: `${id}` }}) ),
+    paths : allUserIds.map((userId)=> ({params: { id: `${userId}` }}) ),
     fallback: false,
   };
 };
@@ -23,7 +23,7 @@ export const getStaticProps = async (context) => {
   const res = await fetch(`https://dummyjson.com/users/${id}`);
   const data = await res.json();
 
-  console.log("response from api", data);
+  // console.log("response from api", data);
   return {
     props: {
       data,
