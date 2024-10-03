@@ -6,7 +6,9 @@ const usersPage = (props) => {
     <div>
       <h1>Static users Page</h1>
       {props.data.users.map((item) => (
-        <li className={`${styles.text-yellow}`} key={item?.id}>{item.firstName}</li>
+        <li className={`${styles.text}`} key={item?.id}>
+          {item.firstName}
+        </li>
       ))}
     </div>
   );
